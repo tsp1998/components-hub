@@ -22,6 +22,25 @@ function formatHTML(html) {
   return result.substring(1, result.length - 3);
 }
 
+function copyFolder(src = path.resolve(__dirname, '..', 'src', 'assets'), dest = path.resolve(__dirname, '..', 'components-html-files', 'assets')) {
+  fs.readdir(dest, (err, files) => {
+    if (err) return console.log('Error while reading directory')
+
+    files.forEach(file => {
+      if (fs.existsSync(path.resolve(dest, file))) {
+        fs.unlinkSync(path.resolve(dest, file));
+      }
+    })
+  });
+  fs.readdir(src, (err, files) => {
+    if (err) return console.log('Error while reading directory')
+
+    files.forEach(file => {
+      fs.copyFileSync(path.resolve(src, file), path.resolve(dest, file));
+    })
+  });
+}
+
 const server = http.createServer(function (req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -49,7 +68,8 @@ const server = http.createServer(function (req, res) {
         </html>
       `;
 
-      fs.writeFileSync(path.resolve(__dirname, '..', 'components-html-files', `${componentName}.html`), formatHTML(htmlString), 'utf-8');
+      fs.writeFileSync(path.resolve(__dirname, '..', 'components-html-files', `${componentName}.html`), formatHTML(htmlString.replace('http://localhost:3100', './assets')), 'utf-8');
+      copyFolder();
     })
     res.end();
   }
