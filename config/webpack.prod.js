@@ -5,7 +5,7 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/ComponentLibraryAndUtils/latest/',
+    publicPath: '/',
   }
 };
 
