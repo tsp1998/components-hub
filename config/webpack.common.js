@@ -12,6 +12,17 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(s[ac]ss|css)$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
+      }
     ],
   },
 };
