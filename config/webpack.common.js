@@ -1,3 +1,7 @@
+const path = require('path')
+const { ModuleFederationPlugin } = require('webpack').container;
+const packageJson = require('../package.json');
+
 module.exports = {
   module: {
     rules: [
@@ -25,4 +29,14 @@ module.exports = {
       }
     ],
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'ComponentLibraryAndUtils',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './Button': path.resolve(__dirname, '..', 'src', 'components', 'button', 'Button'),
+      },
+      shared: packageJson.dependencies,
+    }),
+  ]
 };
