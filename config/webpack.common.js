@@ -2,6 +2,19 @@ const path = require('path')
 const { ModuleFederationPlugin } = require('webpack').container;
 const packageJson = require('../package.json');
 
+const componentType = 'vanilla';
+const components = ['Card'];
+
+const exposes = components.reduce((acc, curr) => {
+  curr = `./${curr}`;
+  return {
+    ...acc,
+    [curr]: path.resolve(__dirname, '..', 'src', componentType, 'components', curr, 'index.js')
+  }
+}, {})
+
+console.log('exposes', exposes)
+
 module.exports = {
   module: {
     rules: [
@@ -26,6 +39,10 @@ module.exports = {
         options: {
           name: '[name].[ext]'
         }
+      },
+      {
+        test: /\.(html)$/,
+        use: ['html-loader']
       }
     ],
   },
@@ -33,9 +50,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'ComponentLibraryAndUtils',
       filename: 'remoteEntry.js',
-      exposes: {
-        './Button': path.resolve(__dirname, '..', 'src', 'components', 'button', 'Button'),
-      },
+      exposes,
       shared: packageJson.dependencies,
     }),
   ]

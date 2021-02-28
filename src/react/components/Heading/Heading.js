@@ -2,7 +2,7 @@ import React from 'react'
 // import './Heading.css'
 
 //utils
-import generateHTML from '../../utils/generateHTML'
+import generateHTML from '../../../utils/generateHTML'
 
 const Heading = (props) => {
 

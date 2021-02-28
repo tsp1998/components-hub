@@ -1,10 +1,10 @@
 import React from 'react'
 
 //assets
-import flowerImage from '../../assets/flower.jpg'
+import flowerImage from '../../../assets/flower.jpg'
 
 //utils
-import generateHTML from '../../utils/generateHTML'
+import generateHTML from '../../../utils/generateHTML'
 
 //styles
 import './Card.scss';
