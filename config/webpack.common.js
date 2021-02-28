@@ -9,7 +9,7 @@ const exposes = components.reduce((acc, curr) => {
   const key = `./${curr}`;
   return {
     ...acc,
-    [key]: `src/${componentType}/components/${curr}/index.js`
+    [key]: `./src/${componentType}/components/${curr}/index.js`
   }
 }, {})
 
