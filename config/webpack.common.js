@@ -9,7 +9,7 @@ const exposes = components.reduce((acc, curr) => {
   curr = `./${curr}`;
   return {
     ...acc,
-    [curr]: path.resolve(__dirname, '..', 'src', componentType, 'components', curr, 'index.js')
+    [curr]: path.resolve('src', componentType, 'components', curr, 'index.js')
   }
 }, {})
 
