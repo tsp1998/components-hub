@@ -7,9 +7,6 @@ const componentType = 'vanilla';
 
 const devConfig = {
   mode: 'development',
-  entry: {
-    main: path.resolve(__dirname, '..', 'src', componentType, 'index.js')
-  },
   output: {
     publicPath: 'http://localhost:3100/',
   },
