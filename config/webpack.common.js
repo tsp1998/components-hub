@@ -3,7 +3,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 const packageJson = require('../package.json');
 
 const componentType = 'vanilla';
-const components = ['Card'];
+const components = ['Card', 'Button'];
 
 const exposes = components.reduce((acc, curr) => {
   const key = `./${curr}`;
