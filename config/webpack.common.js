@@ -6,10 +6,10 @@ const componentType = 'vanilla';
 const components = ['Card'];
 
 const exposes = components.reduce((acc, curr) => {
-  curr = `./${curr}`;
+  const key = `./${curr}`;
   return {
     ...acc,
-    [curr]: path.resolve('src', componentType, 'components', curr, 'index.js')
+    [key]: `src/${componentType}/components/${curr}/index.js`
   }
 }, {})
 
