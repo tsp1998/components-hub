@@ -7,7 +7,7 @@ const componentType = 'vanilla';
 
 const prodConfig = {
   entry: {
-    main: path.resolve('src', componentType, 'index.js')
+    main: `src/${componentType}/index.js`
   },
   mode: 'production',
   output: {
