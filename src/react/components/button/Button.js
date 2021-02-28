@@ -1,7 +1,7 @@
 import React from 'react'
 
 //utils
-import generateHTML from '../../utils/generateHTML'
+import generateHTML from '../../../utils/generateHTML'
 
 //styles
 import styled from 'styled-components'
