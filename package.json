@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "SET NODE_ENV=development && webpack serve --config config/webpack.dev.js --open",
-    "build": "webpack --config config/webpack.prod.js",
+    "build": "SET NODE_ENV=production && webpack --config config/webpack.prod.js",
     "server": "nodemon server/server.js",
     "build-sass": ""
   },
