@@ -1,5 +1,15 @@
 button {
-  background-color: red;
+  background: rgb(0, 240, 112);
   color: white;
   border: none;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+}
+
+button:focus {
+  outline: none;
+  transform: translateY(2px);
+  transition: transform .2s;
 }

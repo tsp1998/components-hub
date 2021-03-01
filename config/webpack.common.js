@@ -3,7 +3,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 const packageJson = require('../package.json');
 
 const componentType = 'vanilla';
-const components = ['Card', 'Button'];
+const components = ['Button'];
 
 const exposes = components.reduce((acc, curr) => {
   const key = `./${curr}`;
@@ -31,10 +31,12 @@ module.exports = {
       },
       {
         test: /\.(s[ac]ss|css)$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
+        exclude: /node_modules/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]'
@@ -42,7 +44,11 @@ module.exports = {
       },
       {
         test: /\.(html)$/,
-        use: ['html-loader']
+        exclude: /node_modules/,
+        loader: 'html-loader',
+        options: {
+          esModule: false,
+        }
       }
     ],
   },
