@@ -2,16 +2,38 @@ const path = require('path')
 const { ModuleFederationPlugin } = require('webpack').container;
 const packageJson = require('../package.json');
 
-const componentType = 'vanilla';
-const components = ['Button'];
+const components = {
+  react: ['Input'],
+  vanilla: ['Button']
+}
 
-const exposes = components.reduce((acc, curr) => {
-  const key = `./${curr}`;
+function getComponentPath(componentType, componentName) {
+  switch(componentType) {
+    case 'vanilla': {
+      return `./src/${componentType}/components/${componentName}/index.js`;
+    };
+    case 'react': {
+      return `./src/${componentType}/components/${componentName}/${componentName}.js`;
+    };
+  }
+}
+
+const exposes = Object.keys(components).reduce((acc, componentType) => {
+
+  const componentsPaths = components[componentType].reduce((acc, componentName) => {
+    const key = `./${componentName}`;
+    return {
+      ...acc,
+      [key]: getComponentPath(componentType, componentName)
+    }
+  }, {})
+
   return {
     ...acc,
-    [key]: `./src/${componentType}/components/${curr}/index.js`
+    ...componentsPaths
   }
 }, {})
+
 
 console.log('exposes', exposes)
 
