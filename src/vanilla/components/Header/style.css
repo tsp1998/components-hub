@@ -2,7 +2,24 @@
 
 header {
     display: flex;
+    height: 50px;
+    background: #eee;
     justify-content: space-around;
-    background: red;
-    height: 100px;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.link {
+    text-decoration: none;
+    color: red;
 }
