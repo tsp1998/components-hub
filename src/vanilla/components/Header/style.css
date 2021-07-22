@@ -1,0 +1,25 @@
+/* start css code here */
+
+header {
+    display: flex;
+    height: 50px;
+    background: #eee;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.link {
+    text-decoration: none;
+    color: red;
+}

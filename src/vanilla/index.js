@@ -1,5 +1,5 @@
 // const component = 'Card';
-const component = 'Button';
+const component = 'Header';
 
 import(`./components/${component}`).then(componentModule => {
   let component = componentModule.default;
