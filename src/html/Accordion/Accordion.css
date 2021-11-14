@@ -1,0 +1,33 @@
+details[open] summary {
+    border: 1px solid #003eff;
+    background: #007fff;
+    color: #ffffff;
+}
+  
+details main {
+    padding: 1em 2.2em;
+}
+
+details:not([open]) summary:hover,
+details:not([open]) summary:focus {      
+    background: #8ad8e5;
+    color: #454545;
+}
+
+details summary {
+    display: block;
+    cursor: pointer;
+    padding: .5em .5em .5em .7em;
+    /* background: #80ccda; */
+    color: #2b2b2b;
+    border-radius: 3px 3px 0 0;
+}
+
+details {
+    overflow: hidden;
+    margin-top: 0.125em;
+    border: 1px solid #dddddd;
+    /* background: #85cef0; */
+    color: #333333;
+    border-radius: 3px;
+}
